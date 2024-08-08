@@ -106,4 +106,19 @@ local e a branch remoto.
 Outros desenvolvedores podem obter o novo branch remoto a partir do comando
 "git pull" seguido de um comando "git checkout -t origin/<branch_name>", que
 criar uma versão local do branch remoto. O modificador -t indica que o
- repositório local vai rastrear mudanças do remoto (tracking)
+ repositório local vai rastrear mudanças do remoto (tracking).
+
+                ##############
+                # Importante #
+                ##############
+    O comando "git pull" traz apenas os indices das branches remotos, e não 
+    todo o histórico, pois em projetos grandes isso seria muito pesado.
+    O que traz o histórico é o comando "git checkout -t origin/<branch_name>"
+
+
+
+
+
+************************************************
+*****        Remoção de Branches         *******
+************************************************
