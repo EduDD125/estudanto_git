@@ -49,3 +49,61 @@ exmplo:
     *branch_2*   --->   branch atual
  
 > git merge branch_1  --> o branch_1 será integrado com o branch_2, no qual vc se encontra
+
+Caso há conflito de integração, cabe ao desenvolvedor dicidir qual versão é a mais adequada, ou, até,
+realizar um implementação que combina as duas versões.
+
+
+
+
+
+************************************************
+******       Integração Contínua        ********
+************************************************
+A metodologia Extreme Programming propõe o conceito Integração Contínua, no qual
+novas alterações são integradas uma ou mais vezes ao dia.
+
+A Integração Contínua acaba minimizando a adoção de feature branches em favor
+do desenvolvimento tunk-based (diretamente na main)
+
+
+
+
+
+
+************************************************
+******        Grafos de Commits         ********
+************************************************
+Grafos são ótima ilustração dos commits e das branchs de projeto versionado.
+
+O commit inicial não possui nó pai", já o commit de merge possui dois pais e
+todos os demais possuem exatamente um pai.
+
+Um branhc é uma variável que contém o identificador do ultimo commit dessa branch.
+Se temos 4 branchs, possuimos 4 variáveis apontando para 
+diferente nós que representa, os ultimos commits dos seus respectivos branchs.
+
+Dessa forma, o comando "git checkout <branch_name>" faz muda o valor de uma variável
+chamada HEAD para onde está o ultimo commits da sua branch atual.
+
+Cada comando "merge <branch_name>" cria um novo nó que apontará para o ultimo commit da branhc atual
+e da branch que foi chamada no comando
+
+
+
+
+
+
+************************************************
+******        Branches Remotos          ********
+************************************************
+O comando "git push -u origin <branch_name>" serve para enviar
+todo o histórico de versionamento da branch atual para o repositório
+remoto em uma branch com o nome dado no comando. O modificador -u
+é obrigatório na primeira vez para criar um link entre as branch
+local e a branch remoto.
+
+Outros desenvolvedores podem obter o novo branch remoto a partir do comando
+"git pull" seguido de um comando "git checkout -t origin/<branch_name>", que
+criar uma versão local do branch remoto. O modificador -t indica que o
+ repositório local vai rastrear mudanças do remoto (tracking)
