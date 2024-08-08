@@ -1,0 +1,51 @@
+*******************************************
+******  Branchs, Checkou & Merge    *******
+*******************************************
+
+
+
+Resumo das aulas passadas:
+
+# o que é sist de versionamento e seus tipos principais
+# o que é o Git e pq utilizamos no desenvolvimento de sistemas
+# áres envolvidas no processos de controle de versão com Git
+# mover arquivos entre áreas de controle (diretório de trabalho, stage area, area versionada)
+# compartilhar arquivo entre repositórios locais e remotos
+# o que são conflitos, porque ocorrem e como resolver
+
+
+
+
+
+
+************************************************
+******             Branchs              ********
+************************************************
+diretório virtual
+o diretório padrão é "master" ou "main"
+interessante criar novas branchs para criar novas funcionalidades ou corrigir erros
+isolar alterações sem afetar outros diretórios virtuais
+
+comando de criação: "git branch -b <branhc_name>"
+visualizar branchs no repositório: "git branch"
+navegação entre troca de branch: "git checkout <branch_name>"
+
+obs: só é possível trocar de branch quando todas alterações foram versionadas,
+se não, elas serão apagas pelo comando "checkout".
+
+
+
+
+
+************************************************
+******              Merge               ********
+************************************************
+Sever para integrar uma branch que vc não está no momento com a 
+branch que vc se encontra agora.
+exmplo:
+
+> git branch
+     branch_1
+    *branch_2*   --->   branch atual
+ 
+> git merge branch_1  --> o branch_1 será integrado com o branch_2, no qual vc se encontra
