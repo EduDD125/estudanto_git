@@ -1,0 +1,116 @@
+********************************************************
+******  REBASE, PULL REQUESTS, FORKS & ISSUES    *******
+********************************************************
+
+
+
+************************
+******  REBASE   *******
+************************
+
+Mover a ligação entre branchs:
+
+ex:
+1 - 2 - 3 - 7
+        |
+        4 - 5 - 6 
+
+queremos que o commit 4 fique conectada diretamente no commit 7
+para ajeitar o histórico de commits.
+
+rebase: 1 - 2 - 3 - 7 -  4 - 5 - 6 
+
+Ele reescreve o histórico de commits. Isso deve ser apenas usado no
+histórico local. Nunca use isso nos commits publicado no repositório remoto.
+
+comando deve ser feito na branch que terá seu início atualizado a partir do base:
+> git rebase main
+
+
+
+
+*******************************
+******  Pull REQUESTS   *******
+*******************************
+
+Comando usado por um desenvolvedor que criou features novas em seus códigos
+e quer que essas features seja revisadas por um terceiro desenvolvedor para
+validar se o código pode ou não ser integrado no histórico de commits do 
+repositório remoto.
+
+Para abrir um pull request, vc deve criar um branch no projeto, subir as altera-
+ções no repositório remoto. Quando vc entrar no github, haverá a possibilidade
+de realizar um pull request.
+
+
+
+
+
+************************
+******  Squash   *******
+************************
+
+Para facilitar pull request resumindo vários commits em apenas um, você
+pode usar o conceito squash. Para criar um squash inicamos com um rebase:
+
+> git rebase -i HEAD~3
+
+O modificador -i indica processo interativo, no qual vai abrir algum editor
+de texto para editar o histórico de commits.
+O parâmetro HEAD~3 indica que o rebase será feito nos ultimos 3 commits
+da branch atual, apontando pela variável HEAD.
+No eidtor de texto será aberto mostrando a lista de commits a serem
+analisados (exemplo):
+
+pick 4b08105 docs: add new docs – part 2
+pick 5157a72 docs: add new docs – part 3
+pick b541447 docs: add new docs – part 4
+
+para realizar o squash, é necessário substituir a palavra pick por squash 
+em todos os commits após o primeiro. Após alterar, basta salvar e fechar 
+o editor: 
+
+pick 4b08105 docs: add new docs – part 2
+squash 5157a72 docs: add new docs – part 3
+squash b541447 docs: add new docs – part 4
+
+Será aberto um segundo editor para que seja informada uma mensagem consolidade
+de commit para o squash. Adicione ou altere o conteúdo, salve e feche o
+editor.
+
+
+
+
+
+************************
+******   Fork    *******
+************************
+
+comando para duplicar um resitório público de alguém no github para um
+repositório github novo em sua conta. Isso é diferente de um "git clone".
+
+
+
+
+
+
+*************************
+******   Issue    *******
+*************************
+
+Quando um desenvolvedor percebe que algo pode ser feito ou deve ser corrigido,
+um issue pode ser aberta descrevendo a questão.
+
+
+
+#####  issues gerenciadas por commit  #####
+
+É possivel comentar sobre uma issue ou encerrá-la por meio de mensagem em commits.
+Para fechar uma issue, existem palavras chave que devem ser utilizadas em conjunto
+com o ID dessa issue, tais como: close, closes, closed, fix, fixes, fixed, resolve,
+resolves, resolved.
+
+> vim Card.java
+>git commit -m "bug: salve the card problem -close #2"
+>git push
+
